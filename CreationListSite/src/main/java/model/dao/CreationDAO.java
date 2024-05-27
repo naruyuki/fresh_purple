@@ -399,9 +399,26 @@ public class CreationDAO {
     
     
     
-    
-    
-    
+//    public int uploadCreation(String title, String id, String text, int genre_id) {
+//    	int cnt = 0;
+//    	String sql = "INSERT INTO m_creation(creation_title, creation_text, date, ) VALUES (?, ?, ?, ?)";
+//    	
+//    	try (Connection con = ConnectionManager.getConnection();
+//    			PreparedStatement pstmt = con.prepareStatement(sql)) {
+//    		pstmt.setString(1, title);
+//    		pstmt.setString(2, id);
+//    		pstmt.setString(3, text);
+//    		pstmt.setInt(4, genre_id);
+//    		cnt = pstmt.executeUpdate();
+//    			
+//    		
+//    	} catch (SQLException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return cnt;
+//    }
+//    
+//    
     
     
     
