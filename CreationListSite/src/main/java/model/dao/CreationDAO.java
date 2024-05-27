@@ -444,7 +444,19 @@ public class CreationDAO {
     
     
     
-    
+    public int updateName(String user_id, String name) {
+    	String sql = "UPDATE m_users SET name = ? WHERE user_id = ?";
+    	int cnt = 0;
+    	try (Connection con = ConnectionManager.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)) {
+    		pstmt.setString(1, name);
+    		pstmt.setString(2, user_id);
+    		cnt = pstmt.executeUpdate();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    	return cnt;
+    }
     
     
     
