@@ -460,7 +460,27 @@ public class CreationDAO {
     
     
     
+    public int uploadRough(String title, String text, String id, int genre_id) {
+    	int cnt = 0;
+    	String sql = "INSERT INTO m_creation";
+    	try (Connection con = ConnectionManager.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)) {
+    		
+    	}
+    	return cnt;
+    }
     
+    public int deleteRough(int rough_id) {
+    	int cnt = 0;
+    	String sql = "";
+    	return cnt;
+    }
+    
+    
+    public int uploadRoughIntoCreation() {
+    	int cnt = 0;
+    	return cnt;
+    }
     
     
 //    public int uploadCreation(String title, String id, String text, int genre_id) {
