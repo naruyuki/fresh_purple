@@ -391,17 +391,98 @@ public class CreationDAO {
     }
     
     
+    //検索結果一覧表示
+    
+    public List<CreationList> searchingFor(String search) {
+        List<CreationList> list = new ArrayList<>();
+        
+        String sql = "SELECT\n"
+                + "    m_creation.creation_id,\n"
+                + "    m_creation.creation_title,\n"
+                + "    m_users.name AS author,\n"
+                + "    COUNT(m_creationfav.creationfav_id) AS like_count\n"
+                + "FROM\n"
+                + "    m_creation\n"
+                + "INNER JOIN\n"
+                + "    m_users ON m_creation.user_id = m_users.user_id\n"
+                + "LEFT JOIN\n"
+                + "    m_creationfav ON m_creation.creation_id = m_creationfav.creation_id\n"
+                + "WHERE\n"
+                + "    m_users.name LIKE ?\n"
+                + "GROUP BY\n"
+                + "    m_creation.creation_id,\n"
+                + "    m_creation.creation_title,\n"
+                + "    m_users.name\n"
+                + "ORDER BY\n"
+                + "    like_count DESC;\n";
+
+        try (Connection con = ConnectionManager.getConnection();
+             PreparedStatement pstmt = con.prepareStatement(sql)) {
+        	
+            // プレースホルダーに値をセットする
+            pstmt.setString(1, "%" + search + "%");
+
+            ResultSet res = pstmt.executeQuery();
+
+            while (res.next()) {
+                CreationList a = new CreationList();
+                a.setCreation_id(res.getInt("creation_id"));
+                a.setCreation_title(res.getString("creation_title"));
+                a.setName(res.getString("author"));
+                a.setReview_count(res.getInt("like_count"));
+
+                list.add(a);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
+    
+    
+    
+    public int updateName(String user_id, String name) {
+    	String sql = "UPDATE m_users SET name = ? WHERE user_id = ?";
+    	int cnt = 0;
+    	try (Connection con = ConnectionManager.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)) {
+    		pstmt.setString(1, name);
+    		pstmt.setString(2, user_id);
+    		cnt = pstmt.executeUpdate();
+    	} catch (SQLException e) {
+    		e.printStackTrace();
+    	}
+    	return cnt;
+    }
     
     
     
     
     
     
-    
-    
-    
-    
-    
+//    public int uploadCreation(String title, String id, String text, int genre_id) {
+//    	int cnt = 0;
+//    	String sql = "INSERT INTO m_creation(creation_title, creation_text, date, ) VALUES (?, ?, ?, ?)";
+//    	
+//    	try (Connection con = ConnectionManager.getConnection();
+//    			PreparedStatement pstmt = con.prepareStatement(sql)) {
+//    		pstmt.setString(1, title);
+//    		pstmt.setString(2, id);
+//    		pstmt.setString(3, text);
+//    		pstmt.setInt(4, genre_id);
+//    		cnt = pstmt.executeUpdate();
+//    			
+//    		
+//    	} catch (SQLException e) {
+//    		e.printStackTrace();
+//    	}
+//    	return cnt;
+//    }
+//    
+//    
     
     
     
