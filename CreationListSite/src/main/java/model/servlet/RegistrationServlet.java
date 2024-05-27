@@ -1,7 +1,6 @@
 package model.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.dao.CreationDAO;
-import model.entity.CreationList;
+import model.dao.RegisterDAO;
 
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class RegistrationServlet
  */
-@WebServlet("/search")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/register")
+public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchServlet() {
+    public RegistrationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,6 +32,7 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
@@ -41,31 +40,32 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		HttpSession session = request.getSession();
-		
 		request.setCharacterEncoding("UTF-8");
-		
-		String search = request.getParameter("search");
-		
-		CreationDAO a = new CreationDAO();
-		
-		List<CreationList> list = a.searchingFor(search);
-		
-		request.setAttribute("list", list);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("TopPage.jsp");
-		rd.forward(request, response);
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	HttpSession session =request.getSession();
+	String user_id=request.getParameter("user_id");
+	String password=request.getParameter("password");
+	String name=request.getParameter("name");
+	
+	String url="";
+	RegisterDAO dao = new RegisterDAO();
+	int result =dao.registerUser(user_id, password, name);
+	
+	if(result==0) {
+		session.setAttribute("message", "新規登録に失敗しました。");
+		url= "Registration.jsp";
+	}else {
+		if(result==1) {
+			session.setAttribute("message","登録完了しました。");
+			url="UpCompleted.jsp";
+		}
+	}
+	RequestDispatcher rd=request.getRequestDispatcher(url);
+	rd.forward(request, response);
+	
+	
+	
+	
+	
 	}
 
 }
