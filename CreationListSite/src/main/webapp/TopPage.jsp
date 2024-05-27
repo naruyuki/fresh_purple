@@ -1,154 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.dao.CreationDAO,java.util.List,java.util.ArrayList,model.entity.CreationList"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>★トップページ★</title>
-</head>
-<body>
 
-<h1>創作図書館</h1>
-
-<header>
-
-	<%if(session.getAttribute("loginInfo") != null){
-		%>
-		<p><%=session.getAttribute("loginInfo") %>さん、ようこそ！</p>
-		<%
-	}
-		%>
-
-
-	
-
-
-	
-
-
-	<nav>
-	
-	
-		<%if(session.getAttribute("loginInfo") != null){
-			
-			%><a href="mypage">マイページ</a>
-			<a href="Logout.jsp">ログアウト</a><% 
-		
-	}else{
-		%><a href="Registration.jsp">新規登録</a>
-		
-		<a href="Login.jsp">ログイン</a><% 
-	}
-		%>
-	
-		
-	
-	
-	</nav>
-
-
-
-
-	<form action="search" method="post">
-	
-		<input type="text" name="search" placeholder="著者名で検索">
-	
-		<button>検索</button>
-	
-	
-	</form>
-
-
-
-
-</header>
-
-
-
-<%
-
-List<CreationList> list = new ArrayList<CreationList>();
-
-String user_id =(String) session.getAttribute("user_id");
-
-if(request.getAttribute("list") == null){
-	
-	CreationDAO dao = new CreationDAO();
-	
-	list = dao.GetListForMonth();
-	
-}else{
-	
-	list = (List)request.getAttribute("list");
-	
-}
-
-
-
-for(CreationList a : list){
-	
-	%>
-	
-	<table border="1">
-	
-		<tr>
-			<th><a href="detail?user_id=<%= user_id %>&creation_title=<%= a.getCreation_title() %>&creation_id=<%=a.getCreation_id() %>"><%= a.getCreation_title() %></th>
-
-		</tr>
-		<tr>
-			<td>著者：<%= a.getName() %></td>
-
-		</tr>
-		<tr>
-			<td>いいね：<%=a.getReview_count() %></td>
-			
-			
-
-		</tr>
-	
-	
-	
-	
-	</table>
-	
-	
-	
-
-	
-	<%
-}
-
-%>
-
-
-
-
-
-
-</body>
-</html>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="model.dao.CreationDAO,java.util.List,java.util.ArrayList,model.entity.CreationList"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head>	
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>トップページ</title>
 </head>
 <body>
+
+
+
+
 	<h2>
-		<a href="#">創作図書館</a>
+		<a href="TopPage.jsp">創作図書館</a>
 	</h2>
 	<nav id="menubar" class="nav-fix-pos">
 		<ul>
-			<li><a href="Detail.jsp">Creation_detail<span>創作物詳細</span></a></li>
-			<li><a href="Register.jsp">New_registration<span>新規登録</span></a></li>
-			<li><a href="Login.jsp">Login<span>ログイン</span></a></li>
-			<li><a href="Mypage.jsp">Mypage<span>マイページ</span></a></li>
-		</ul>
+			<%if(session.getAttribute("loginInfo") == null){
+				%>
+					<li><a href="Registration.jsp">New_registration<span>新規登録</span></a></li>
+					<li><a href="Login.jsp">Login<span>ログイン</span></a></li>
+				
+				<%
+			}else{
+				%>
+					<li><a href="mypage">Mypage<span>マイページ</span></a></li>
+					<li><a href="Logout.jsp">Mypage<span>ログアウト</span></a></li>
+					
+				<%
+			}
+			%>
+		
+					</ul>
 	</nav>
 	<br>
 	<br>
@@ -160,13 +47,19 @@ for(CreationList a : list){
 	<br>
 <body>
 	<div class="search-container">
-		<input type="text" class="search-box" placeholder="キーワード検索...">
-		<button class="search-button">
-			<svg viewBox="0 0 24 24">
-                <path
-					d="M21.71 20.29l-3.4-3.39A9.456 9.456 0 0020 11.5C20 6.81 16.19 3 11.5 3S3 6.81 3 11.5 6.81 20 11.5 20c2.26 0 4.31-.78 5.91-2.09l3.4 3.39c.19.18.44.29.7.29.26 0 .52-.1.71-.29.39-.39.39-1.03 0-1.42zM11.5 18c-3.59 0-6.5-2.91-6.5-6.5S7.91 5 11.5 5s6.5 2.91 6.5 6.5S15.09 18 11.5 18z" />
-            </svg>
-		</button>
+	
+		<form action="search" method="post">
+		
+			<input type="text" name = "search" class="search-box" placeholder="著者検索...">
+			<button class="search-button">
+				<svg viewBox="0 0 24 24">
+	                <path
+						d="M21.71 20.29l-3.4-3.39A9.456 9.456 0 0020 11.5C20 6.81 16.19 3 11.5 3S3 6.81 3 11.5 6.81 20 11.5 20c2.26 0 4.31-.78 5.91-2.09l3.4 3.39c.19.18.44.29.7.29.26 0 .52-.1.71-.29.39-.39.39-1.03 0-1.42zM11.5 18c-3.59 0-6.5-2.91-6.5-6.5S7.91 5 11.5 5s6.5 2.91 6.5 6.5S15.09 18 11.5 18z" />
+	            </svg>
+			</button>
+		
+		</form>
+		
 	</div>
 
 	<h3>ランキング</h3>
