@@ -77,6 +77,7 @@
 		異世界</button>
 		
 	
+	
 		週間
 	<button class="icon-button">
 		<i class="fas fa-trash icon"></i>
