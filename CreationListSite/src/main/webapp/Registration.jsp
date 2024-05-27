@@ -11,6 +11,14 @@
 	<div class="signup-container">
 		<h2>会員登録</h2>
 		<form action="register" method="post">
+			<%if(session.getAttribute("message") != null){
+				
+				%>
+				<p><%=session.getAttribute("message") %></p>
+				
+				<%				
+			}
+			%>
 			<input type="text" name="user_id" placeholder="ユーザーID" required>
 			<input type="password" name="password" placeholder="パスワード" required>
 			<input type="text" name="name" placeholder="ペンネーム" required>
