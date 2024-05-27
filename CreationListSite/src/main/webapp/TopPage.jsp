@@ -76,7 +76,32 @@
 	<button class="search-button2" onclick="filterItems('異世界')">
 		異世界</button>
 		
-		
+	
+		週間
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		🌙
+	</button>
+	恋愛
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		💞
+	</button>
+	文芸
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		📚
+	</button>
+	SF
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		🛸
+	</button>
+	異世界
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		🌎
+	</button>
 		
 		<%
 
