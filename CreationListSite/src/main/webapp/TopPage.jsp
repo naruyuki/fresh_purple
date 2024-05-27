@@ -49,9 +49,9 @@
 
 
 
-	<form action="" method="post">
+	<form action="search" method="post">
 	
-		<input type="text" name="search">
+		<input type="text" name="search" placeholder="著者名で検索">
 	
 		<button>検索</button>
 	
