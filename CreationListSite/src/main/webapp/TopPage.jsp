@@ -83,6 +83,8 @@ if(request.getAttribute("list") == null){
 	
 }
 
+
+
 for(CreationList a : list){
 	
 	%>
