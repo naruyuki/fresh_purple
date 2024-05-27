@@ -51,7 +51,7 @@ input:checked + .tab_class + .content_class {
 </style>
 
 
-</head>
+
 <body>
 
 <h1>創作図書館</h1>
@@ -73,6 +73,8 @@ input:checked + .tab_class + .content_class {
 	
 		<p><%=name %>さん</p>
 		<p>ユーザID:<%=id %></p>
+		
+		<a href="EditUserInfo.jsp">会員情報変更</a>
 
 	
 	</header>

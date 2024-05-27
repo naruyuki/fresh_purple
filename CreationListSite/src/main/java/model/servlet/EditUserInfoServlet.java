@@ -1,7 +1,6 @@
 package model.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,19 +11,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.CreationDAO;
-import model.entity.CreationList;
 
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class EditUserInfoServlet
  */
-@WebServlet("/search")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/edituserinfo")
+public class EditUserInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchServlet() {
+    public EditUserInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,7 +32,7 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -47,23 +45,22 @@ public class SearchServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String search = request.getParameter("search");
+		String user_id = (String)session.getAttribute("user_id");
 		
-		CreationDAO a = new CreationDAO();
+		String newName = request.getParameter("name");
 		
-		List<CreationList> list = a.searchingFor(search);
 		
-		request.setAttribute("list", list);
+		CreationDAO dao = new CreationDAO();
 		
-		RequestDispatcher rd = request.getRequestDispatcher("TopPage.jsp");
+		if(dao.updateName(user_id, newName)==1) {
+			session.setAttribute("loginInfo", newName);
+		}
+		
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher("MyPage.jsp");
+		
 		rd.forward(request, response);
-		
-		
-		
-		
-		
-		
-		
 		
 		
 	}
