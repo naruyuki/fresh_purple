@@ -105,30 +105,7 @@
         // フィルタリングのロジックをここに追加
     }
 </script>
-<%
-=======
-	<h2>
-		<a href="TopPage.jsp">創作図書館</a>
-	</h2>
-	<nav id="menubar" class="nav-fix-pos">
-		<ul>
-			<%if(session.getAttribute("loginInfo") == null){
-				%>
-					<li><a href="Registration.jsp">New_registration<span>新規登録</span></a></li>
-					<li><a href="Login.jsp">Login<span>ログイン</span></a></li>
-				
-				<%
-			}else{
-				%>
-					<li><a href="mypage">Mypage<span>マイページ</span></a></li>
-					<li><a href="Logout.jsp">Mypage<span>ログアウト</span></a></li>
-					
-				<%
-			}
-			%>
-		
-					</ul>
-	</nav>
+
 	<br>
 	<br>
 	<br>
