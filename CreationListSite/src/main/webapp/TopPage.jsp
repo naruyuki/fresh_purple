@@ -78,7 +78,7 @@
 		
 	
 	
-		週間
+	週間
 	<button class="icon-button">
 		<i class="fas fa-trash icon"></i>
 		🌙
