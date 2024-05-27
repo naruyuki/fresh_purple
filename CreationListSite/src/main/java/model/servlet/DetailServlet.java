@@ -52,7 +52,7 @@
 /*    */     
 /* 51 */     CreationList res = dao.GetCreation(title);
 /*    */     
-/* 53 */     List<CreationList> resCom = dao.GetCommnets(id);
+/* 53 */     List<CreationList> resCom = dao.GetComments(id);
 /*    */ 
 /*    */ 
 /*    */ 
