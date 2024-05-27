@@ -75,6 +75,64 @@
 	</button>
 	<button class="search-button2" onclick="filterItems('異世界')">
 		異世界</button>
+		
+		
+		
+		<%
+
+List<CreationList> list = new ArrayList<CreationList>();
+
+String user_id =(String) session.getAttribute("user_id");
+
+if(request.getAttribute("list") == null){
+	
+	CreationDAO dao = new CreationDAO();
+	
+	list = dao.GetListForMonth();
+	
+}else{
+	
+	list = (List)request.getAttribute("list");
+	
+}
+
+
+
+for(CreationList a : list){
+	
+	%>
+	
+	<table >
+	
+		<tr>
+			<th><a href="detail?user_id=<%= user_id %>&creation_title=<%= a.getCreation_title() %>&creation_id=<%=a.getCreation_id() %>"><%= a.getCreation_title() %></th>
+
+		</tr>
+		<tr>
+			<td>著者：<%= a.getName() %></td>
+
+		</tr>
+		<tr>
+			<td>いいね：<%=a.getReview_count() %></td>
+			
+			
+
+		</tr>
+	
+	
+	
+	
+	</table>
+	
+	
+	
+
+	
+	<%
+}
+
+%>
+		
 
 </body>
 <style>
