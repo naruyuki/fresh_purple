@@ -87,7 +87,7 @@
         <li><button class="search-button2" onclick="filterItems('恋愛')"><span>love</span>恋愛</button></li>
         <li><button class="search-button2" onclick="filterItems('文芸')"><span>literature</span>文芸</button></li>
         <li><button class="search-button2" onclick="filterItems('SF')"><span>science fiction</span>SF</button></li>
-        <li><button class="search-button2" onclick="filterItems('ファンタジー')"><span></span>異世界</button></li>
+        <li><button class="search-button2" onclick="filterItems('ファンタジー')"><span></span>ファンタジー</button></li>
         <li><button class="search-button2" onclick="filterItems('異世界')">異世界</button></li>
     </ul>
     
