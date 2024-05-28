@@ -5,35 +5,6 @@
 	pageEncoding="UTF-8" import="model.dao.CreationDAO,java.util.List,java.util.ArrayList,model.entity.CreationList"%>
 <!DOCTYPE html>
 <html>
-<head>	
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>トップページ</title>
-</head>
-<body>
-
-<<<<<<< HEAD
-<header>
-
-	<%if(session.getAttribute("loginInfo") != null){
-		%>
-		<p><%=session.getAttribute("loginInfo") %>さん、ようこそ！</p>
-		<%
-	}
-		%>
-
-
-</header>
-
-
-
-
-
-
-
-
-</body>
-</html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
