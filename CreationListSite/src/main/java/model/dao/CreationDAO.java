@@ -517,8 +517,8 @@ public class CreationDAO {
     			PreparedStatement pstmt = con.prepareStatement(sql)){
     		
     		pstmt.setString(1, comment);
-    		pstmt.setString(1, user_id);
-    		pstmt.setInt(1, creation_id);
+    		pstmt.setString(2, user_id);
+    		pstmt.setInt(3, creation_id);
     		
     		res = pstmt.executeUpdate();
     		
@@ -535,6 +535,9 @@ public class CreationDAO {
     
     
 >>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
+    
+    
+    
     
     
 //    public int uploadCreation(String title, String id, String text, int genre_id) {
