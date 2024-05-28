@@ -66,7 +66,7 @@ List<Genre> list = a.getGenreNames();
         
         
         <button type="submit" onclick="setFormAction('saverough')">保存</button>
-        <button type="submit" onclick="setFormAction('uploadcreation')">投稿</button>
+        <button type="submit" onclick="setFormAction('upload')">投稿</button>
         
         
     </form>

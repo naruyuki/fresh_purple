@@ -13,16 +13,16 @@ import javax.servlet.http.HttpSession;
 import model.dao.UploadDAO;
 
 /**
- * Servlet implementation class UploadServlet
+ * Servlet implementation class SaveRoughServlet
  */
-@WebServlet("/upload")
-public class UploadServlet extends HttpServlet {
+@WebServlet("/saverough")
+public class SaveRoughServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UploadServlet() {
+    public SaveRoughServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,7 +39,7 @@ public class UploadServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		
 		request.setCharacterEncoding("UTF-8");
@@ -52,7 +52,7 @@ public class UploadServlet extends HttpServlet {
 		
 		UploadDAO dao = new UploadDAO();
 		
-		dao.uploadCreation(title, user_id, text, genre_id);
+		dao.uploadRough(title,text, user_id,  genre_id);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("TopPage.jsp");
 		rd.forward(request, response);
@@ -61,15 +61,3 @@ public class UploadServlet extends HttpServlet {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
