@@ -2,12 +2,7 @@
 	pageEncoding="UTF-8" import="model.dao.CreationDAO,java.util.List,java.util.ArrayList,model.entity.CreationList"%>
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
-=======
-<head>	
-
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>トップページ</title>
@@ -16,7 +11,6 @@
 	<h2>
 		<a href="#">創作図書館</a>
 	</h2>
-	
 	<nav id="menubar" class="nav-fix-pos">
 		<ul>
 		<%if(session.getAttribute("loginInfo") != null){
@@ -45,7 +39,7 @@
 	<br>
 <body>
 	<div class="search-container">
-		<input type="text" class="search-box" name="search" placeholder="キーワード検索...">
+		<input type="text" class="search-box" placeholder="キーワード検索...">
 		<button class="search-button">
 			<svg viewBox="0 0 24 24">
                 <path
@@ -58,80 +52,15 @@
     
     <nav id="menubar2" class="nav-fix-pos2">
 		<ul>
-			<li><a href=""><span>🌙週間</span></a></li>
-			<li><a href=""><span>💞恋愛</span></a></li>
-			<li><a href=""><span>📚文芸</span></a></li>
-			<li><a href=""><span>🛸SF</span></a></li>
-			<li><a href=""><span>🌎異世界</span></a></li>
+			<li><a href="Detail.jsp"><span>🌙週間</span></a></li>
+			<li><a href="Register.jsp"><span>💞恋愛</span></a></li>
+			<li><a href="Login.jsp"><span>📚文芸</span></a></li>
+			<li><a href="Mypage.jsp"><span>🛸SF</span></a></li>
+			<li><a href="Mypage.jsp"><span>🌎異世界</span></a></li>
 		</ul>
 	</nav>
-	
-	<script>
-    function filterItems(category) {
-        console.log(category + ' button clicked!');
-        // フィルタリングのロジックをここに追加
-    }
-</script>
-<<<<<<< HEAD
+
 <%
-=======
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-<body>
-	
-
-	<h3>ランキング</h3>
-
-
-	<button class="search-button2" onclick="filterItems('週間')">週間
-	</button>
-	<button class="search-button2" onclick="filterItems('恋愛')">恋愛
-	</button>
-	<button class="search-button2" onclick="filterItems('ファンタジー')">
-		文芸</button>
-	<button class="search-button2" onclick="filterItems('SF')">SF
-	</button>
-	<button class="search-button2" onclick="filterItems('異世界')">
-		異世界</button>
-		
-	
-	
-	週間
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		🌙
-	</button>
-	恋愛
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		💞
-	</button>
-	文芸
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		📚
-	</button>
-	SF
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		🛸
-	</button>
-	異世界
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		🌎
-	</button>
-		
-		<%
-
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 
 List<CreationList> list = new ArrayList<CreationList>();
 
@@ -185,11 +114,7 @@ for(CreationList a : list){
 }
 
 %>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
+	
 </body>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
@@ -384,29 +309,36 @@ position: relative;
 	background: #28F086;
 	color: #fff;
 }
-table{
-position: relative;
-text-align: center;
-}
-tbody{
-text-align: center;
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 15px rgba(64, 64, 64, 0.1);
+    background: #fff;
+    text-align: left;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
 }
 
-.center-table {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px; /* Add margin as needed */
-    }
-    table {
-        border-collapse: collapse;
-        width: 100%; /* Adjust width as needed */
-    }
-    th, td {
-        border: 1px solid #000; /* Add border for clarity */
-        padding: 10px;
-        text-align: left;
-    }
+table th, table td {
+    padding: 15px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+table th {
+    background-color: #3CB371;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:hover {
+    background-color: #f5f5f5;
+}
+
+table tr:last-of-type {
+    border-bottom: 2px solid #3CB371;
+}
+
 
 </style>
 </html>

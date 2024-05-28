@@ -8,6 +8,7 @@
 </head>
 <body>
 <%@ include file="header.jsp"%>
+ <h2>登録完了</h2>
  <%String message=""; %>
  <%message= (String)session.getAttribute("message"); %>
  <p><%=message %></p>
