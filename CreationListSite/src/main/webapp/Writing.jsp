@@ -44,6 +44,7 @@
         </select>
         
         
+        
         <button type="submit" onclick="setFormAction('saverough')">保存</button>
         <button type="submit" onclick="setFormAction('uploadcreation')">投稿</button>
         
