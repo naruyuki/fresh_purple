@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.util.List,model.entity.Genre,model.dao.GenreDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +15,15 @@
     
 </head>
 <body>
+
+<%
+GenreDAO a = new GenreDAO();
+List<Genre> list = a.getGenreNames();
+
+%>
+
+
+
 	<h2>
 		<a href="#">創作図書館</a>
 	</h2>
@@ -34,12 +43,22 @@
         
         <select name="genre_id">
         
-        	<option value="1"></option>
-        	<option value="2"></option>
-        	<option value="3"></option>
-        	<option value="4"></option>
-        	<option value="5"></option>
+        <%
         
+        for(Genre b : list){
+        	%>
+        	
+        	<option value="<%= b.getGenre_id() %>"><%=b.getGenre_name() %></option>
+        	
+        	<%
+        	
+        	
+        }
+        
+        %>
+        
+        	
+
         
         </select>
         
