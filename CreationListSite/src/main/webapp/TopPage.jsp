@@ -2,7 +2,12 @@
 	pageEncoding="UTF-8" import="model.dao.CreationDAO,java.util.List,java.util.ArrayList,model.entity.CreationList"%>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 <head>
+=======
+<head>	
+
+>>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>トップページ</title>
@@ -17,14 +22,14 @@
 		<%if(session.getAttribute("loginInfo") != null){
 			
 			%>
-			<li><a href="Detail.jsp">Mypage<span>マイページ</span></a></li>
-			<li><a href="Register.jsp">Logout<span>ログアウト</span></a></li>
+			<li><a href="myapage">Mypage<span>マイページ</span></a></li>
+			<li><a href="Logout.jsp">Logout<span>ログアウト</span></a></li>
 			<% 
 		
 	}else{
 		%>
-			<li><a href="Login.jsp">New_registration<span>新規登録</span></a></li>
-			<li><a href="Mypage.jsp">Login<span>ログイン</span></a></li>
+			<li><a href="Registration.jsp">New_registration<span>新規登録</span></a></li>
+			<li><a href="Login.jsp">Login<span>ログイン</span></a></li>
 			<% 
 	}
 		%>
@@ -40,7 +45,7 @@
 	<br>
 <body>
 	<div class="search-container">
-		<input type="text" class="search-box" placeholder="キーワード検索...">
+		<input type="text" class="search-box" name="search" placeholder="キーワード検索...">
 		<button class="search-button">
 			<svg viewBox="0 0 24 24">
                 <path
@@ -67,7 +72,66 @@
         // フィルタリングのロジックをここに追加
     }
 </script>
+<<<<<<< HEAD
 <%
+=======
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+<body>
+	
+
+	<h3>ランキング</h3>
+
+
+	<button class="search-button2" onclick="filterItems('週間')">週間
+	</button>
+	<button class="search-button2" onclick="filterItems('恋愛')">恋愛
+	</button>
+	<button class="search-button2" onclick="filterItems('ファンタジー')">
+		文芸</button>
+	<button class="search-button2" onclick="filterItems('SF')">SF
+	</button>
+	<button class="search-button2" onclick="filterItems('異世界')">
+		異世界</button>
+		
+	
+	
+	週間
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		🌙
+	</button>
+	恋愛
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		💞
+	</button>
+	文芸
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		📚
+	</button>
+	SF
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		🛸
+	</button>
+	異世界
+	<button class="icon-button">
+		<i class="fas fa-trash icon"></i>
+		🌎
+	</button>
+		
+		<%
+
+>>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 
 List<CreationList> list = new ArrayList<CreationList>();
 
@@ -121,6 +185,11 @@ for(CreationList a : list){
 }
 
 %>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 </body>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
