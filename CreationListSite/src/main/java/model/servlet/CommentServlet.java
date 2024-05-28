@@ -1,7 +1,6 @@
 package model.servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,21 +8,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.dao.CreationDAO;
-import model.entity.CreationList;
 
 /**
- * Servlet implementation class SearchServlet
+ * Servlet implementation class CommentServlet
  */
-@WebServlet("/search")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/comment")
+public class CommentServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchServlet() {
+    public CommentServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,25 +41,22 @@ public class SearchServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-//		HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
 		
-		String search = request.getParameter("search");
+		String user_id = (String)session.getAttribute("user_id");
+		int creation_id =Integer.parseInt(request.getParameter("creation_id"));
+		String comment = request.getParameter("comment");
+		String from = request.getParameter("from");
 		
-		CreationDAO a = new CreationDAO();
+		CreationDAO dao = new CreationDAO();
 		
-		List<CreationList> list = a.searchingFor(search);
+		dao.uploadComment(user_id, comment, creation_id);
+
 		
-		request.setAttribute("list", list);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("TopPage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(from);
 		rd.forward(request, response);
-		
-		
-		
-		
-		
 		
 		
 		
