@@ -461,6 +461,34 @@ public class CreationDAO {
     
     
     
+    //コメント投稿
+    
+    public int uploadComment(String user_id,String comment,int creation_id) {
+    	int res = 0;
+    	
+    	String sql ="INSERT INTO m_comment (comment_text,user_id,creation_id)VALUES(?,?,?)";
+    	
+    	try(Connection con = ConnectionManager.getConnection();
+    			PreparedStatement pstmt = con.prepareStatement(sql)){
+    		
+    		pstmt.setString(1, comment);
+    		pstmt.setString(1, user_id);
+    		pstmt.setInt(1, creation_id);
+    		
+    		res = pstmt.executeUpdate();
+    		
+    		
+    		
+    	}catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    	return res;
+    	
+    }
+    
+    
+    
     
     
 //    public int uploadCreation(String title, String id, String text, int genre_id) {

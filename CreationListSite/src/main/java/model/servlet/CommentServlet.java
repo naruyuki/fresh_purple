@@ -45,14 +45,14 @@ public class CommentServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String user_id = (String)session.getAttribute("user_id");
+		int creation_id =Integer.parseInt(request.getParameter("creation_id"));
 		String comment = request.getParameter("comment");
 		String from = request.getParameter("from");
 		
 		CreationDAO dao = new CreationDAO();
 		
-//		dao.uploadComment(user_id,comment);
-		//TODO！！！！！！！！！！！！！！
-		////DAOの作成
+		dao.uploadComment(user_id, comment, creation_id);
+
 		
 		
 		RequestDispatcher rd = request.getRequestDispatcher(from);
