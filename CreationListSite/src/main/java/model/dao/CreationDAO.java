@@ -462,14 +462,14 @@ public class CreationDAO {
     
     
     
-	public int uploadRough(String creation_title, String creation_text, String creation_id, int genre_id) throws ClassNotFoundException {
+	public int uploadRough(String rough_title, String rough_text, String rough_id, int genre_id) throws ClassNotFoundException {
 		int cnt = 0;
-		String sql = "INSERT INTO m_creation(creation_title, creation_text, user_id, genre_id) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO m_rough(rough_title, rough_text, rough_id, genre_id) VALUES (?, ?, ?, ?)";
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-			pstmt.setString(1, creation_title);
-			pstmt.setString(2, creation_text);
-			pstmt.setString(3, creation_id);
+			pstmt.setString(1, rough_title);
+			pstmt.setString(2, rough_text);
+			pstmt.setString(3, rough_id);
 			pstmt.setInt(4, genre_id);
 			cnt = pstmt.executeUpdate();
 		} catch (SQLException e) {
