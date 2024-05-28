@@ -6,40 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>	
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>トップページ</title>
-</head>
-<body>
 
-<<<<<<< HEAD
-<header>
-
-	<%if(session.getAttribute("loginInfo") != null){
-		%>
-		<p><%=session.getAttribute("loginInfo") %>さん、ようこそ！</p>
-		<%
-	}
-		%>
-=======
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
-
-
-
-<<<<<<< HEAD
-
-</header>
-
-
-
-
-
-
-
-
-</body>
-</html>
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>トップページ</title>
@@ -53,14 +20,14 @@
 		<%if(session.getAttribute("loginInfo") != null){
 			
 			%>
-			<li><a href="Detail.jsp">Mypage<span>マイページ</span></a></li>
-			<li><a href="Register.jsp">Logout<span>ログアウト</span></a></li>
+			<li><a href="myapage">Mypage<span>マイページ</span></a></li>
+			<li><a href="Logout.jsp">Logout<span>ログアウト</span></a></li>
 			<% 
 		
 	}else{
 		%>
-			<li><a href="Login.jsp">New_registration<span>新規登録</span></a></li>
-			<li><a href="Mypage.jsp">Login<span>ログイン</span></a></li>
+			<li><a href="Registration.jsp">New_registration<span>新規登録</span></a></li>
+			<li><a href="Login.jsp">Login<span>ログイン</span></a></li>
 			<% 
 	}
 		%>
@@ -77,7 +44,7 @@
 <body>
 <form action="search" method="post">
 	<div class="search-container">
-		<input type="text" class="search-box" placeholder="キーワード検索...">
+		<input type="text" class="search-box" name="search" placeholder="キーワード検索...">
 		<button class="search-button">
 			<svg viewBox="0 0 24 24">
                 <path
@@ -115,21 +82,7 @@
 	<br>
 	<br>
 <body>
-	<div class="search-container">
 	
-		<form action="search" method="post">
-		
-			<input type="text" name = "search" class="search-box" placeholder="著者検索...">
-			<button class="search-button">
-				<svg viewBox="0 0 24 24">
-	                <path
-						d="M21.71 20.29l-3.4-3.39A9.456 9.456 0 0020 11.5C20 6.81 16.19 3 11.5 3S3 6.81 3 11.5 6.81 20 11.5 20c2.26 0 4.31-.78 5.91-2.09l3.4 3.39c.19.18.44.29.7.29.26 0 .52-.1.71-.29.39-.39.39-1.03 0-1.42zM11.5 18c-3.59 0-6.5-2.91-6.5-6.5S7.91 5 11.5 5s6.5 2.91 6.5 6.5S15.09 18 11.5 18z" />
-	            </svg>
-			</button>
-		
-		</form>
-		
-	</div>
 
 	<h3>ランキング</h3>
 
@@ -174,7 +127,7 @@
 	</button>
 		
 		<%
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
+
 
 List<CreationList> list = new ArrayList<CreationList>();
 
@@ -228,11 +181,7 @@ for(CreationList a : list){
 }
 
 %>
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 
 </body>
 <style>
