@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>★トップページ★</title>
+<title>会員登録</title>
 </head>
 <body>
 	<%@ include file="header.jsp"%>
