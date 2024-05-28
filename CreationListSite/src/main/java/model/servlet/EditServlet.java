@@ -41,14 +41,24 @@ public class EditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		HttpSession session = request.getSession();
 		
-		String title = request.getParameter("creation_title");
-		String id = request.getParameter("creation_text");
+		String title = request.getParameter("rough_title");
+		String text = request.getParameter("rough_text");
+		String id = request.getParameter("rough_id");
+		int genre_id = Integer.parseInt(request.getParameter("genre_id"));
 		
 		CreationDAO dao = new CreationDAO();
+		
+		if(dao.uploadRough(title, text, id, genre_id) == 1) {
+			session.setAttribute("title", title);
+			session.setAttribute("text", text);
+			session.setAttribute("id", id);
+			session.setAttribute("genre_id", genre_id);
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher("EditCreation.jsp");
 		rd.forward((ServletRequest)request, (ServletResponse)response);
