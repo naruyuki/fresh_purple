@@ -1,44 +1,7 @@
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="model.dao.CreationDAO,java.util.List,java.util.ArrayList,model.entity.CreationList"%>
 <!DOCTYPE html>
 <html>
-<head>	
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>トップページ</title>
-</head>
-<body>
-
-<<<<<<< HEAD
-<header>
-
-	<%if(session.getAttribute("loginInfo") != null){
-		%>
-		<p><%=session.getAttribute("loginInfo") %>さん、ようこそ！</p>
-		<%
-	}
-		%>
-=======
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
-
-
-
-<<<<<<< HEAD
-
-</header>
-
-
-
-
-
-
-
-
-</body>
-</html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,6 +11,7 @@
 	<h2>
 		<a href="#">創作図書館</a>
 	</h2>
+	
 	<nav id="menubar" class="nav-fix-pos">
 		<ul>
 		<%if(session.getAttribute("loginInfo") != null){
@@ -75,7 +39,6 @@
 	<br>
 	<br>
 <body>
-<form action="search" method="post">
 	<div class="search-container">
 		<input type="text" class="search-box" placeholder="キーワード検索...">
 		<button class="search-button">
@@ -85,96 +48,26 @@
             </svg>
 		</button>
 	</div>
-	</form>
 
 	<h3>ランキング</h3>
-
-
- <ul>
-        <li><button class="search-button2" onclick="filterItems('週間')"><span>weekly</span>週間</button></li>
-        <li><button class="search-button2" onclick="filterItems('恋愛')"><span>love</span>恋愛</button></li>
-        <li><button class="search-button2" onclick="filterItems('文芸')"><span>literature</span>文芸</button></li>
-        <li><button class="search-button2" onclick="filterItems('SF')"><span>science fiction</span>SF</button></li>
-        <li><button class="search-button2" onclick="filterItems('ファンタジー')"><span></span>ファンタジー</button></li>
-        <li><button class="search-button2" onclick="filterItems('異世界')">異世界</button></li>
-    </ul>
     
-    <script>
+    <nav id="menubar2" class="nav-fix-pos2">
+		<ul>
+			<li><a href=""><span>🌙週間</span></a></li>
+			<li><a href=""><span>💞恋愛</span></a></li>
+			<li><a href=""><span>📚文芸</span></a></li>
+			<li><a href=""><span>🛸SF</span></a></li>
+			<li><a href=""><span>🌎異世界</span></a></li>
+		</ul>
+	</nav>
+	
+	<script>
     function filterItems(category) {
         console.log(category + ' button clicked!');
         // フィルタリングのロジックをここに追加
     }
 </script>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-<body>
-	<div class="search-container">
-	
-		<form action="search" method="post">
-		
-			<input type="text" name = "search" class="search-box" placeholder="著者検索...">
-			<button class="search-button">
-				<svg viewBox="0 0 24 24">
-	                <path
-						d="M21.71 20.29l-3.4-3.39A9.456 9.456 0 0020 11.5C20 6.81 16.19 3 11.5 3S3 6.81 3 11.5 6.81 20 11.5 20c2.26 0 4.31-.78 5.91-2.09l3.4 3.39c.19.18.44.29.7.29.26 0 .52-.1.71-.29.39-.39.39-1.03 0-1.42zM11.5 18c-3.59 0-6.5-2.91-6.5-6.5S7.91 5 11.5 5s6.5 2.91 6.5 6.5S15.09 18 11.5 18z" />
-	            </svg>
-			</button>
-		
-		</form>
-		
-	</div>
-
-	<h3>ランキング</h3>
-
-
-	<button class="search-button2" onclick="filterItems('週間')">週間
-	</button>
-	<button class="search-button2" onclick="filterItems('恋愛')">恋愛
-	</button>
-	<button class="search-button2" onclick="filterItems('ファンタジー')">
-		文芸</button>
-	<button class="search-button2" onclick="filterItems('SF')">SF
-	</button>
-	<button class="search-button2" onclick="filterItems('異世界')">
-		異世界</button>
-		
-	
-	
-	週間
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		🌙
-	</button>
-	恋愛
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		💞
-	</button>
-	文芸
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		📚
-	</button>
-	SF
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		🛸
-	</button>
-	異世界
-	<button class="icon-button">
-		<i class="fas fa-trash icon"></i>
-		🌎
-	</button>
-		
-		<%
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
+<%
 
 List<CreationList> list = new ArrayList<CreationList>();
 
@@ -201,7 +94,7 @@ for(CreationList a : list){
 	<table >
 	
 		<tr>
-			<th><a href="detail?user_id=<%= user_id %>&creation_title=<%= a.getCreation_title() %>&creation_id=<%=a.getCreation_id() %>"><%= a.getCreation_title() %></th>
+			<th><a href="detail?user_id=<%= user_id %>&creation_title=<%= a.getCreation_title() %>&creation_id=<%=a.getCreation_id() %>"><%= a.getCreation_title() %><a></a></th>
 
 		</tr>
 		<tr>
@@ -228,12 +121,6 @@ for(CreationList a : list){
 }
 
 %>
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
-
 </body>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP');
@@ -357,36 +244,99 @@ h3 {
 	font-family: 'Noto Serif JP', sans-serif;
 	text-align: center;
 }
-.nav {
-        background-color: #2c3e50;
-    }
 
-    .nav ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
+.search-button2 {
+	display: block; 
+	width: 100%; 
+	padding: 10px 20px;
+	border: none;
+	background-color: #4CAF50; 
+	color: while;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 4px;
+	transition-duration: 0.4s;
+}
+
+.search-button2:hover {
+	background-color: #28F086; /* 暗い緑色 */
+}
+#menubar2 {
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+	background: rgba(255, 255, 255, 0.95);
+	width: 100%;
+	top: 10px;
+	background-color: #3CB371;
+}
+
+#menubar2 ul {
+position: relative;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	top: 60px;
+}
+
+#menubar2 ul li {
+	flex: 1;
+	text-align: center;
+}
+
+#menubar2 ul li a {
+	text-decoration: none;
+	display: block;
+	height: 80px;
+	padding-top: 20px;
+	border-left: 1px solid #ccc;
+	font-size: 25px;
+	color: white;
+	position: relative;
+	top: -60px;
+}
+
+#menubar2 ul li:first-child a {
+	border-left: none;
+}
+
+#menubar2 li a span {
+	display: block;
+	font-size: 60%;
+	
+}
+
+#menubar2 li a:hover, #menubar li.current a {
+	background: #28F086;
+	color: #fff;
+}
+table{
+position: relative;
+text-align: center;
+}
+tbody{
+text-align: center;
+}
+
+.center-table {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px; /* Add margin as needed */
     }
-
-    .nav li {
-        flex: 1;
+    table {
+        border-collapse: collapse;
+        width: 100%; /* Adjust width as needed */
     }
-
-    .search-button2 {
-        width: 100%;
-        padding: 14px 20px;
-        text-align: center;
-        color: white;
-        background-color: #34495e;
-        border: none;
-        cursor: pointer;
-        font-size: 1em;
-        transition: background-color 0.3s;
-    }
-
-    .search-button2:hover {
-        background-color: #2980b9;
+    th, td {
+        border: 1px solid #000; /* Add border for clarity */
+        padding: 10px;
+        text-align: left;
     }
 
 </style>
