@@ -493,6 +493,7 @@ public class CreationDAO {
     
     
     
+    
 //    public int uploadCreation(String title, String id, String text, int genre_id) {
 //    	int cnt = 0;
 //    	String sql = "INSERT INTO m_creation(creation_title, creation_text, date, ) VALUES (?, ?, ?, ?)";
