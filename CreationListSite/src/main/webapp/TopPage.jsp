@@ -21,12 +21,7 @@
 		<%
 	}
 		%>
-=======
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 
-
-
-<<<<<<< HEAD
 
 </header>
 
@@ -53,14 +48,14 @@
 		<%if(session.getAttribute("loginInfo") != null){
 			
 			%>
-			<li><a href="Detail.jsp">Mypage<span>マイページ</span></a></li>
-			<li><a href="Register.jsp">Logout<span>ログアウト</span></a></li>
+			<li><a href="mypage">Mypage<span>マイページ</span></a></li>
+			<li><a href="Logout.jsp">Logout<span>ログアウト</span></a></li>
 			<% 
 		
 	}else{
 		%>
-			<li><a href="Login.jsp">New_registration<span>新規登録</span></a></li>
-			<li><a href="Mypage.jsp">Login<span>ログイン</span></a></li>
+			<li><a href="Register.jsp">New_registration<span>新規登録</span></a></li>
+			<li><a href="Login.jsp">Login<span>ログイン</span></a></li>
 			<% 
 	}
 		%>
@@ -174,7 +169,7 @@
 	</button>
 		
 		<%
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
+
 
 List<CreationList> list = new ArrayList<CreationList>();
 
@@ -218,7 +213,10 @@ for(CreationList a : list){
 	
 	
 	
+	
+	
 	</table>
+	
 	
 	
 	
@@ -228,11 +226,6 @@ for(CreationList a : list){
 }
 
 %>
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
 
 </body>
 <style>
