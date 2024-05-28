@@ -472,8 +472,8 @@ public class CreationDAO {
     			PreparedStatement pstmt = con.prepareStatement(sql)){
     		
     		pstmt.setString(1, comment);
-    		pstmt.setString(1, user_id);
-    		pstmt.setInt(1, creation_id);
+    		pstmt.setString(2, user_id);
+    		pstmt.setInt(3, creation_id);
     		
     		res = pstmt.executeUpdate();
     		
