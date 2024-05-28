@@ -108,6 +108,8 @@ if(!user_id.equals("")){
 		
 		
 		
+		
+		
 		<%
 	}else{
 		
