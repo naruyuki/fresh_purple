@@ -5,6 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>投稿画面</title>
+
+<script type="text/javascript">
+        function setFormAction(action) {
+            document.getElementById('myForm').action = action;
+        }
+    </script>
+    
+    
 </head>
 <body>
 	<h2>
@@ -12,37 +20,38 @@
 	</h2>
 	<nav id="menubar" class="nav-fix-pos">
 		<ul>
-			<li><a href="Toppage.jsp">Back<span>戻る</span></a></li>
-			<li><a href="EditCreation.jsp">Works_edit<span>作品を編集する</span></a></li>
-			<li><a href="Mypage.jsp">Mypage<span>マイページ</span></a></li>
+			<li><a href="TopPage.jsp">Back<span>戻る</span></a></li>
+			<li><a href="mypage">Mypage<span>マイページ</span></a></li>
 		</ul>
 	</nav>
-	<form action="">
-	<nav id="menubar2" class="nav-fix-pos">
-		<ul>
-			<li><a href="#">Love<span>恋愛</span></a></li>
-			<li><a href="#">Fantasy<span>ファンタジー</span></a></li>
-			<li><a href="#">Literature<span>文芸</span></a></li>
-			<li><a href="#">Science fiction<span>SF</span></a></li>
-			<li><a href="#">Another_world<span>異世界</span></a></li>
-		</ul>
-	</nav>
-	<div class="btn">
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="button-container">
-        <button class="btn save-btn" onclick="location.href='Mypage.jsp'">保存する</button>
-        <button class="btn post-btn" onclick="location.href='Completed.jsp'">投稿する</button>
-    </div>
-	</div>
-	</form>
+	
+	
+	<form id="myForm" method="POST">
+	
+	   
+        <input type="text" placeholder ="タイトルを入力" name="title" required>
+        <input type="text" placeholder ="内容を入力" name="text" required>
+        
+        <select name="genre_id">
+        
+        	<option value="1"></option>
+        	<option value="2"></option>
+        	<option value="3"></option>
+        	<option value="4"></option>
+        	<option value="5"></option>
+        
+        
+        </select>
+        
+        
+        <button type="submit" onclick="setFormAction('saverough')">保存</button>
+        <button type="submit" onclick="setFormAction('uploadcreation')">投稿</button>
+        
+        
+    </form>
+    
+    
+    
 </body>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP'); 
