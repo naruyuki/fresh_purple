@@ -532,12 +532,7 @@ public class CreationDAO {
     	
     }
     
-    
-    
->>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
-    
-    
-    
+   
     
     
 //    public int uploadCreation(String title, String id, String text, int genre_id) {
