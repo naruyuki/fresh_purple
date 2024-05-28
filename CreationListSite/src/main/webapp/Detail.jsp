@@ -108,9 +108,6 @@ if(!user_id.equals("")){
 		
 		
 		
-		
-		
-		
 		<%
 	}else{
 		
@@ -137,21 +134,6 @@ if(!user_id.equals("")){
 
 
 </p>
-
-<p>
-<form action="comment" method="post">
-	
-
-		<input type="hidden" name="user_id" value="<%=session.getAttribute("user_id") %>">
-		
-		<input type="hidden" name="creation_id" value="<%=session.getAttribute("creation_id") %>">
-
-		<input type="text" name="comment" placeholder="コメント...">		
-		
-		<button>コメント</button>
-				
-	</form>
-	</p>
 	
 	
 	<%
@@ -166,9 +148,6 @@ if(!user_id.equals("")){
 		<button>いいね！</button>
 				
 	</form>
-	
-	
-	
 	
 	
 	

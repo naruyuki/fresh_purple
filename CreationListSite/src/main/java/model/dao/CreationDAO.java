@@ -461,6 +461,51 @@ public class CreationDAO {
     
     
     
+    
+	public int uploadRough(String title, String text, String id, int genre_id) throws ClassNotFoundException {
+		int cnt = 0;
+		String sql = "INSERT INTO m_creation(creation_title, creation_text, user_id, genre_id) VALUES (?, ?, ?, ?)";
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setString(1, title);
+			pstmt.setString(2, text);
+			pstmt.setString(3, id);
+			pstmt.setInt(4, genre_id);
+			cnt = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+
+	
+	
+	public int deleteRough(int rough_id) throws ClassNotFoundException {
+		int cnt = 0;
+		String sql = "DELETE FROM m_creation WHERE rough_id = ?";
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			pstmt.setInt(1, rough_id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+
+	
+	
+	public int uploadRoughIntoCreation() throws ClassNotFoundException {
+		int cnt = 0;
+		String sql = "";
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
+
+    
     //コメント投稿
     
     public int uploadComment(String user_id,String comment,int creation_id) {
@@ -489,6 +534,7 @@ public class CreationDAO {
     
     
     
+>>>>>>> branch 'main' of https://github.com/naruyuki/fresh_purple.git
     
     
     

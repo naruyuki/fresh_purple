@@ -47,7 +47,7 @@ public class CommentServlet extends HttpServlet {
 		String user_id = (String)session.getAttribute("user_id");
 		int creation_id =Integer.parseInt(request.getParameter("creation_id"));
 		String comment = request.getParameter("comment");
-		
+		String from = request.getParameter("from");
 		
 		CreationDAO dao = new CreationDAO();
 		
@@ -55,10 +55,8 @@ public class CommentServlet extends HttpServlet {
 
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("Detail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(from);
 		rd.forward(request, response);
-		
-		
 		
 		
 		

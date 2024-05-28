@@ -42,8 +42,6 @@
 /*    */     
 /* 41 */     String title = request.getParameter("creation_title");
 /* 42 */     String id = request.getParameter("creation_id");
-
-			
 /*    */ 
 /*    */     
 /* 45 */     session.setAttribute("title", title);
@@ -62,7 +60,7 @@
 /*    */ 
 /*    */ 
 /*    */ 
-/*    */    
+/*    */     
 /* 62 */     session.setAttribute("result", res);
 /* 63 */     session.setAttribute("comment", resCom);
 /* 64 */     session.setAttribute("creation_id", id);
@@ -82,9 +80,6 @@
 /* 78 */     doGet(request, response);
 /*    */   }
 /*    */ }
-
-
-
 
 /*
 	DECOMPILATION REPORT
